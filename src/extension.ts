@@ -2,18 +2,16 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 //import * as vscode from 'vscode';
-import { window, commands, Disposable, SnippetString, ExtensionContext, StatusBarAlignment, StatusBarItem, TextDocument, TextEditor, ViewColumn, workspace, TextLine, TextEdit, Uri, Position } from 'vscode';
-import { stringify } from 'querystring';
+import { window, commands, SnippetString, ExtensionContext, TextEditor } from 'vscode';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: ExtensionContext) {
-    console.log('"Cegeka Helper" is now active!');
-    let cegekaHelper = new ALHelper;
+    console.log('"AL Helper" is now active!');
+    let alHelper = new ALHelper;
     let disp = commands.registerCommand('extension.convertSelection2Enum', () =>{
-        cegekaHelper.convertSelection2Enum(window.activeTextEditor);
+        alHelper.convertSelection2Enum(window.activeTextEditor);
     })
-
     context.subscriptions.push(disp);
 }
 
